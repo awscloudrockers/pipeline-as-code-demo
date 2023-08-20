@@ -1,10 +1,7 @@
-
 pipeline {
 
     agent {
-        node {
-            label 'SLAVE01'
-        }
+	any
     }
 
     tools { 
@@ -39,7 +36,7 @@ pipeline {
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '*/master']], 
-                    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
+                    userRemoteConfigs: [[url: 'git@github.com:awscloudrockers/pipeline-as-code-demo.git']]
                 ])
             }
         }
